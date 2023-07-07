@@ -200,10 +200,14 @@ class AlienGame():
                 pygame.quit()
                 quit()
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                    player.changespeed(0, player.change_y)
-                elif event.key == pygame.K_UP or event.key == pygame.K_DOWN:
-                    player.changespeed(player.change_x, 0)
+                if event.key == pygame.K_LEFT:
+                    player.changespeed(-3, 0)
+                elif event.key == pygame.K_RIGHT:
+                    player.changespeed(3, 0)
+                elif event.key == pygame.K_UP:
+                    player.changespeed(0, -3)
+                elif event.key == pygame.K_DOWN:
+                    player.changespeed(0, 3)
                 elif event.key == pygame.K_SPACE:
                     pygame.mixer.Sound.play(self.laser_gun)
                     # Fire a bullet if the user clicks the mouse button
@@ -215,10 +219,14 @@ class AlienGame():
                     all_sprites_list.add(bullet)
                     bullet_list.add(bullet)
             elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                    player.changespeed(0, player.change_y)
-                elif event.key == pygame.K_UP or event.key == pygame.K_DOWN:
-                    player.changespeed(player.change_x, 0)
+                if event.key == pygame.K_LEFT:
+                    player.changespeed(3, 0)
+                elif event.key == pygame.K_RIGHT:
+                    player.changespeed(-3, 0)
+                elif event.key == pygame.K_UP:
+                    player.changespeed(0, 3)
+                elif event.key == pygame.K_DOWN:
+                    player.changespeed(0, -3)
                     
 #
 # Main game loop
