@@ -78,8 +78,18 @@ class SpaceShip(sprite.Sprite):
 
     def changespeed(self, x, y):
         """ Change the speed of the player. """
-        if abs(self.change_x + x) > constants.MAX_SPEED:
-            self.change_x = 0    
+       # if abs(self.change_x + x) > constants.MAX_SPEED:
+       #     self.change_x = 0    
+
+       # if abs(self.change_y + y) > constants.MAX_SPEED:
+       #     self.change_y = 0    
+
+        if abs(self.change_x) > constants.MAX_SPEED:
+            self.change_x = constants.MAX_SPEED if self.change_x > 0 else -constants.MAX_SPEED
+
+        if abs(self.change_y) > constants.MAX_SPEED:
+            self.change_y = constants.MAX_SPEED if self.change_y > 0 else -constants.MAX_SPEED
+
         self.change_x += x
         self.change_y += y
         
@@ -91,6 +101,13 @@ class SpaceShip(sprite.Sprite):
             self.rect.x = constants.screen_width - 30
         elif self.rect.x < 0:
             self.rect.x = 0
+
+        self.rect.y += self.change_y
+
+        if self.rect.y + 50 > constants.screen_height:
+            self.rect.y = constants.screen_height - 50
+        elif self.rect.y < 0:
+            self.rect.y = 0
 
 class Bullet(pygame.sprite.Sprite):
     """ This class represents the bullet . """
