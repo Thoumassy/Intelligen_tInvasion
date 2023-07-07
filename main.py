@@ -14,7 +14,7 @@ class AlienGame():
         
         # Initialize Pygame
         pygame.init()
-        pygame.display.set_caption("(-( A L I E N )-)")
+        pygame.display.set_caption("(Intelligent Invasion - Alien AI Strikes Back)")
         self.laser_gun = pygame.mixer.Sound(path.join(constants.SOUND_DIR, constants.LASER_SOUND))
         self.explosion = pygame.mixer.Sound(path.join(constants.SOUND_DIR, constants.EXPLOSION_SOUND))
         pygame.mixer.music.load(path.join(constants.SOUND_DIR, constants.BACKGOUND_MUSIC))
@@ -200,10 +200,10 @@ class AlienGame():
                 pygame.quit()
                 quit()
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    player.changespeed(-3, 0)
-                elif event.key == pygame.K_RIGHT:
-                    player.changespeed(3, 0)
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    player.changespeed(0, player.change_y)
+                elif event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                    player.changespeed(player.change_x, 0)
                 elif event.key == pygame.K_SPACE:
                     pygame.mixer.Sound.play(self.laser_gun)
                     # Fire a bullet if the user clicks the mouse button
@@ -215,10 +215,10 @@ class AlienGame():
                     all_sprites_list.add(bullet)
                     bullet_list.add(bullet)
             elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT:
-                    player.changespeed(3, 0)
-                elif event.key == pygame.K_RIGHT:
-                    player.changespeed(-3, 0)
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    player.changespeed(0, player.change_y)
+                elif event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                    player.changespeed(player.change_x, 0)
                     
 #
 # Main game loop
