@@ -65,6 +65,8 @@ class SpaceShip(sprite.Sprite):
         sprite.Sprite.__init__(self)
     
         # Load the image
+        self.image_scale_down = pygame.image.load(path.join(constants.IMAGE_DIR,constants.SPACESHIP_IMAGE)).convert_alpha()
+        self.image_scale_up = pygame.image.load(path.join(constants.IMAGE_DIR,constants.SPACESHIP_IMAGE_UP_2)).convert_alpha()
         self.image = pygame.image.load(path.join(constants.IMAGE_DIR,constants.SPACESHIP_IMAGE)).convert_alpha()
     
         # Set our transparent color
@@ -73,6 +75,7 @@ class SpaceShip(sprite.Sprite):
         # Set speed vector
         self.change_x = 0
         self.change_y = 0
+        self.scale = constants.SPACESHIP_SCALE_DOWN
 
         self.rect = self.image.get_rect()
 
@@ -92,7 +95,14 @@ class SpaceShip(sprite.Sprite):
 
         self.change_x += x
         self.change_y += y
+
+    def scale_up(self):
+        self.image = self.image_scale_up
+        self.scale = constants.SPACESHIP_SCALE_UP
         
+    def scale_down(self):
+        self.image = self.image_scale_down
+        self.scale = constants.SPACESHIP_SCALE_DOWN
 
     def update(self):
         self.rect.x += self.change_x

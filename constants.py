@@ -8,7 +8,11 @@ ORANGE = (255, 165, 0)
 IMAGE_DIR = 'images'
 SOUND_DIR = 'sounds'
 
-SPACESHIP_IMAGE = "spaceship.png"
+SPACESHIP_IMAGE = "human_spaceship.png"
+SPACESHIP_IMAGE_UP_2 = "humain_spaceship_up_scale_02.png"
+SPACESHIP_SCALE_DOWN = 1
+SPACESHIP_SCALE_UP = 2
+
 LASER_SOUND = "laser2.wav"
 EXPLOSION_SOUND = "explosion2.wav"
 BACKGOUND_MUSIC = "theme_song.mp3"
@@ -20,7 +24,7 @@ LEVEL1_IMAGE_BACKGROUND = "asteroid.png"
 LEVEL1_IMAGE_ALIEN = "alien_small.png"
 
 MAX_ALIEN_LEVEL2 = 4
-LEVEL2_IMAGE_BACKGROUND = "sun.png"
+LEVEL2_IMAGE_BACKGROUND = "mars_2_background.png"
 LEVEL2_IMAGE_ALIEN = "alien_big0{}.png"
 
 LEVEL4_IMAGE_BACKGROUND = "nebuleuse.png"
