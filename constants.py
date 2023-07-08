@@ -9,9 +9,9 @@ IMAGE_DIR = 'images'
 SOUND_DIR = 'sounds'
 
 SPACESHIP_IMAGE = "spaceship.png"
-LASER_SOUND = "laser.wav"
-EXPLOSION_SOUND = "explosion.wav"
-BACKGOUND_MUSIC = "background_music.mp3"
+LASER_SOUND = "laser2.wav"
+EXPLOSION_SOUND = "explosion2.wav"
+BACKGOUND_MUSIC = "theme_song.mp3"
 
 EXPLOSITION_IMAGE = 'regularExplosion0{}.png'
 
