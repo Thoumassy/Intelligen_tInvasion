@@ -75,18 +75,12 @@ class SpaceShip(sprite.Sprite):
         # Set speed vector
         self.change_x = 0
         self.change_y = 0
-        self.scale = constants.SPACESHIP_SCALE_DOWN
+        self.scale_up = False
 
         self.rect = self.image.get_rect()
 
     def changespeed(self, x, y):
         """ Change the speed of the player. """
-       # if abs(self.change_x + x) > constants.MAX_SPEED:
-       #     self.change_x = 0    
-
-       # if abs(self.change_y + y) > constants.MAX_SPEED:
-       #     self.change_y = 0    
-
         if abs(self.change_x) > constants.MAX_SPEED:
             self.change_x = constants.MAX_SPEED if self.change_x > 0 else -constants.MAX_SPEED
 
@@ -96,14 +90,13 @@ class SpaceShip(sprite.Sprite):
         self.change_x += x
         self.change_y += y
 
-    def scale_up(self):
-        self.image = self.image_scale_up
-        self.scale = constants.SPACESHIP_SCALE_UP
+    def scale(self, scale_up):
+        self.scale_up = scale_up
+        if scale_up:
+            self.image = self.image_scale_up
+        else:
+            self.image = self.image_scale_down
         
-    def scale_down(self):
-        self.image = self.image_scale_down
-        self.scale = constants.SPACESHIP_SCALE_DOWN
-
     def update(self):
         self.rect.x += self.change_x
 
