@@ -211,13 +211,37 @@ class AlienGame():
                 elif event.key == pygame.K_SPACE:
                     pygame.mixer.Sound.play(self.laser_gun)
                     # Fire a bullet if the user clicks the mouse button
-                    bullet = Bullet()
-                    # Set the bullet so it is where the player is
-                    bullet.rect.x = player.rect.x + 25
-                    bullet.rect.y = player.rect.y
-                    # Add the bullet to the lists
-                    all_sprites_list.add(bullet)
-                    bullet_list.add(bullet)
+
+
+                    # player is scaler up, fire 2 bullets...
+                    if player.scale == constants.SPACESHIP_SCALE_UP:
+                        bullet = Bullet()
+                        # Set the bullet so it is where the player is
+                        bullet.rect.x = player.rect.x + 37
+                        bullet.rect.y = player.rect.y
+                        # Add the bullet to the lists
+                        all_sprites_list.add(bullet)
+                        bullet_list.add(bullet)
+
+
+                        bullet_2 = Bullet()
+                        # Set the bullet so it is where the player is
+                        bullet_2.rect.x = player.rect.x + 57
+                        bullet_2.rect.y = player.rect.y
+                        # Add the bullet to the lists
+                        all_sprites_list.add(bullet_2)
+                        bullet_list.add(bullet_2)
+                    else:
+                        bullet = Bullet()
+                        # Set the bullet so it is where the player is
+                        bullet.rect.x = player.rect.x + 30
+                        bullet.rect.y = player.rect.y
+                        # Add the bullet to the lists
+                        all_sprites_list.add(bullet)
+                        bullet_list.add(bullet)
+
+                elif event.key == pygame.K_e:
+                    player.scale_up()                    
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT:
                     player.changespeed(3, 0)
@@ -227,6 +251,8 @@ class AlienGame():
                     player.changespeed(0, 3)
                 elif event.key == pygame.K_DOWN:
                     player.changespeed(0, -3)
+                elif event.key == pygame.K_e:
+                    player.scale_down()                    
                     
 #
 # Main game loop
