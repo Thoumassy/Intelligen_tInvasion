@@ -44,12 +44,12 @@ class AlienGame():
 
     def start_game(self):
         
-        gameover_font = pygame.font.SysFont('freesansbold.ttf', 50)
-        on_text_surface = gameover_font.render("[E] to expand spaceship - Any key to start", True, constants.YELLOW)
+        game_start_font = pygame.font.SysFont('freesansbold.ttf', 50)
+        on_text_surface = game_start_font.render("[E] to expand spaceship - Any key to start", True, constants.YELLOW)
         
         blink_rect = on_text_surface.get_rect()
         blink_rect.center = self.screen.get_rect().center
-        off_text_surface = gameover_font.render("", True, constants.YELLOW)
+        off_text_surface = game_start_font.render("", True, constants.YELLOW)
     
         blink_surfaces = cycle([on_text_surface, off_text_surface])
         
