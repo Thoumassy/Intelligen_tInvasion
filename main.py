@@ -41,6 +41,37 @@ class AlienGame():
         
         return False
 
+
+    def start_game(self):
+        
+        gameover_font = pygame.font.SysFont('freesansbold.ttf', 50)
+        on_text_surface = gameover_font.render("[E] to expand spaceship - Any key to start", True, constants.YELLOW)
+        
+        blink_rect = on_text_surface.get_rect()
+        blink_rect.center = self.screen.get_rect().center
+        off_text_surface = gameover_font.render("", True, constants.YELLOW)
+    
+        blink_surfaces = cycle([on_text_surface, off_text_surface])
+        
+        background_image = pygame.image.load(path.join(constants.IMAGE_DIR,constants.LEVEL1_IMAGE_BACKGROUND)).convert()
+    
+        wait = True
+        while wait:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()                
+                if event.type == pygame.KEYDOWN:
+                    wait = False    
+                    
+            self.screen.blit(background_image, [0, 0])          
+            self.screen.blit(next(blink_surfaces), blink_rect)
+            pygame.display.update()
+                 
+            pygame.time.delay(500)
+            
+        self.score = 0
+
     def end_game(self, game_level):
         
         gameover_font = pygame.font.SysFont('freesansbold.ttf', 70)
@@ -71,6 +102,7 @@ class AlienGame():
             pygame.time.delay(500)
             
         self.score = 0
+
 
             
     def space_ship_bullet(self, bullet_list, alien_list, all_sprites_list, damage):
@@ -265,6 +297,10 @@ levels = [Level1(1),Level2(1), Level3(1), Level4(1),Level1(2),Level2(2),
           Level3(2), Level4(2),Level1(3),Level2(3), Level3(3), 
           Level4(3),Level1(4),Level2(4), Level3(4), Level4(4)]
 while game_on:  
+
+    # key to start game
+    alien_game.start_game()
+
     for level in levels:
         win = alien_game.run_level(level)
         if not win:
