@@ -9,6 +9,10 @@ IMAGE_DIR = 'images'
 SOUND_DIR = 'sounds'
 
 SPACESHIP_IMAGE = "human_spaceship.png"
+SPACESHIP_IMAGE_UP_2 = "humain_spaceship_up_scale_02.png"
+SPACESHIP_SCALE_DOWN = 1
+SPACESHIP_SCALE_UP = 2
+
 LASER_SOUND = "laser.wav"
 EXPLOSION_SOUND = "explosion.wav"
 BACKGOUND_MUSIC = "background_music.mp3"
