@@ -132,7 +132,7 @@ class AlienGame():
         # Create a spaceship player block
         player = SpaceShip()
         player.rect.x = constants.screen_width // 2
-        player.rect.y = 570
+        player.rect.y = 540
         all_sprites_list.add(player)
 
         # Used to manage how fast the screen updates
