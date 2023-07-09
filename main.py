@@ -22,6 +22,7 @@ class AlienGame():
 
         self.laser_gun.set_volume(0.2)
         self.explosion.set_volume(0.3)
+        
         self.screen = pygame.display.set_mode([constants.screen_width, constants.screen_height])
         self.score = 0
         
