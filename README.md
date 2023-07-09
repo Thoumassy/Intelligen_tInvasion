@@ -18,6 +18,7 @@ Prepare for an unforgettable showdown as you confront the ultimate challenge: th
 
 Intelligent Invasion: Alien AI Strikes Back is a thrilling arcade shooter that combines fast-paced gameplay, strategic decision-making, and an immersive sci-fi experience. Can you save humanity from the brink of annihilation? The fate of Earth rests in your hands!
 
+![Game](images/game.png)
 ## Install
 Clone the repo, then install the requirement 
 ```
