@@ -38,6 +38,7 @@ Quite simple :
 ↑ Up 
 ↓ Down
 Space bar: Shoot a bullet
+E: Expand the spaceship, able to shoot 2 bullets
 `````
 
 ## AI tools used
